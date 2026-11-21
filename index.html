@@ -23,10 +23,20 @@
   .step p { font-size:16px; line-height:1.7; }
   .sites { text-align:center; }
   .pill { display:inline-block; background:var(--cream); color:var(--deep); font-weight:bold; border-radius:30px; padding:10px 22px; margin:6px 4px; font-size:17px; }
-  .sub { text-align:center; background:linear-gradient(180deg, #fff, #eef7f1); }
-  .sub .btn { display:inline-block; margin-top:16px; background:var(--green); color:#fff; font-size:19px; font-weight:bold; padding:15px 40px; border-radius:50px; text-decoration:none; }
-  .sub .mail { direction:ltr; display:inline-block; margin-top:12px; background:#eef7f1; border-radius:10px; padding:8px 16px; font-size:15px; color:var(--deep); }
-  .sub ol { text-align:right; margin:14px 20px 0; font-size:15px; line-height:2; color:#40534a; }
+  .sub { background:linear-gradient(180deg, #fff, #eef7f1); }
+  .sub form { text-align:right; margin-top:10px; }
+  .sub label { font-weight:bold; color:var(--deep); display:block; margin:16px 0 6px; font-size:16px; }
+  .sub input[type=email], .sub input[type=text] { width:100%; padding:12px 14px; border:2px solid #d5e6db; border-radius:12px; font-size:16px; font-family:inherit; background:#fff; }
+  .sub input:focus { outline:none; border-color:var(--green2); }
+  .hint { font-size:14px; color:#5c6f64; line-height:1.8; margin-bottom:8px; }
+  #compList input { margin-top:8px; }
+  #addComp { margin-top:10px; background:none; border:2px dashed var(--green2); color:var(--green2); border-radius:12px; padding:9px 18px; font-size:15px; font-weight:bold; cursor:pointer; font-family:inherit; }
+  .sub .btn { display:block; width:100%; margin-top:20px; background:var(--green); color:#fff; font-size:19px; font-weight:bold; padding:15px 40px; border-radius:50px; border:none; cursor:pointer; font-family:inherit; }
+  .sub .btn:disabled { opacity:.6; cursor:default; }
+  #formMsg { margin-top:14px; font-size:16px; font-weight:bold; line-height:1.8; }
+  #formMsg.ok { color:var(--green2); }
+  #formMsg.err { color:#b3261e; }
+  .sub .mail { direction:ltr; display:inline-block; margin-top:18px; background:#eef7f1; border-radius:10px; padding:8px 16px; font-size:15px; color:var(--deep); }
   footer { text-align:center; color:#8a9a90; font-size:13px; margin-top:36px; }
   a { color:var(--green); }
 </style>
@@ -42,12 +52,13 @@
   <div class="card">
     <h3>إيه اللي هيوصلك؟</h3>
     <div class="feat"><span class="ic">📧</span><p>تقرير أسبوعي على إيميلك بكل تغييرات أسعار منافسيك: مين نزل، مين طلع، وبكام.</p></div>
-    <div class="feat"><span class="ic">🔍</span><p>مراقبة يومية لمنتجاتك ومنافسيك — لحد ١٢ منتج في الاشتراك.</p></div>
+    <div class="feat"><span class="ic">🔍</span><p>مراقبة يومية لمنتجاتك ومنافسيك، لحد ١٢ منتج في الاشتراك.</p></div>
     <div class="feat"><span class="ic">⚡</span><p>تعرف بالتغيير قبل ما يأثر في مبيعاتك، وتتحرك بسرعة.</p></div>
   </div>
 
   <div class="card sites">
     <h3>بنراقب فين؟</h3>
+    <p style="margin-bottom:10px; font-size:15px; color:#5c6f64;">المراقبة اليومية بتشمل تلقائيًا الأسواق التلاتة دول لكل مشترك:</p>
     <span class="pill">جوميا</span>
     <span class="pill">أمازون مصر</span>
     <span class="pill">نون</span>
@@ -55,22 +66,60 @@
 
   <div class="card">
     <h3>إزاي تبدأ؟</h3>
-    <div class="step"><div class="n">1</div><p>سجّل اهتمامك وابعت منتجاتك ومنافسيك اللي عايز تراقبهم.</p></div>
+    <div class="step"><div class="n">1</div><p>سجّل اهتمامك بإيميلك، واكتب منافسيك اللي عايز تراقبهم (اختياري).</p></div>
     <div class="step"><div class="n">2</div><p>فريقنا يجهز المراقبة اليومية لأسعارهم.</p></div>
     <div class="step"><div class="n">3</div><p>يوصلك التقرير على إيميلك كل أسبوع.</p></div>
   </div>
 
   <div class="card sub" id="subscribe">
-    <h3>اشتراك شهري بسيط</h3>
-    <p style="line-height:1.9;">الاشتراك يفتح قريبًا بأولوية لأول المسجلين. سجّل اهتمامك دلوقتي على إيميلنا، اكتب اسمك ونوع منتجاتك وعدد المنتجات اللي عايز تراقبها، وهنرد عليك بخطوات الاشتراك أول ما يفتح.</p>
-    <a class="btn" href="mailto:qalebakgahez@gmail.com?subject=%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%B9%D9%8A%D9%86%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%B3%D9%88%D9%82&body=%D8%A7%D9%84%D8%A7%D8%B3%D9%85%3A%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%3A%0A%D8%B9%D8%AF%D8%AF%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%88%D8%A8%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%AA%D9%87%D8%A7%3A%0A%D8%B1%D9%88%D8%A7%D8%A8%D8%B7%20%D9%85%D9%86%D8%A7%D9%81%D8%B3%D9%8A%D9%83%20(%D8%A5%D9%86%20%D9%88%D8%AC%D8%AF%D8%AA)%3A">سجّل اهتمامك بالاشتراك</a>
-    <br>
-    <span class="mail">qalebakgahez@gmail.com</span>
+    <h3>سجّل اهتمامك</h3>
+    <p style="line-height:1.9;">الاشتراك يفتح قريبًا بأولوية لأول المسجلين. سيب إيميلك وهنرد عليك بخطوات الاشتراك أول ما يفتح.</p>
+    <form id="interestForm">
+      <label for="email">إيميلك *</label>
+      <input type="email" id="email" required placeholder="name@example.com" dir="ltr">
+      <label>منافسين إضافيين (اختياري)</label>
+      <p class="hint">اكتب المنافسين أو صفحاتهم اللي عايز تراقبها، وتقدر تضيف أي عدد. كل منافس تضيفه بيتعمله نفس المراقبة اليومية على جوميا وأمازون مصر ونون زي باقي المتابعة.</p>
+      <div id="compList">
+        <input type="text" class="comp" placeholder="اسم المنافس أو رابط صفحته">
+      </div>
+      <button type="button" id="addComp">+ أضف منافس آخر</button>
+      <button type="submit" class="btn" id="submitBtn">سجّل اهتمامك بالاشتراك</button>
+    </form>
+    <div id="formMsg"></div>
+    <span class="mail">أو راسلنا مباشرة: qalebakgahez@gmail.com</span>
   </div>
 
   <footer>
     عين على السوق — خدمة من «قالبك الجاهز» · تابعنا على تيك توك وانستجرام @qalebakgahez
   </footer>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+var sb = window.supabase.createClient('https://vgvkbsnpdpgybtsfwted.supabase.co', 'sb_publishable_v3QgxU-WmX2vOPmIr1vJZw_qaGTHVvg');
+document.getElementById('addComp').addEventListener('click', function(){
+  var i = document.createElement('input');
+  i.type = 'text'; i.className = 'comp'; i.placeholder = 'اسم المنافس أو رابط صفحته';
+  document.getElementById('compList').appendChild(i); i.focus();
+});
+document.getElementById('interestForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var email = document.getElementById('email').value.trim();
+  var comps = Array.prototype.slice.call(document.querySelectorAll('#compList .comp')).map(function(x){ return x.value.trim(); }).filter(function(x){ return x; });
+  var msg = document.getElementById('formMsg');
+  var btn = document.getElementById('submitBtn');
+  msg.className = ''; msg.textContent = 'جاري التسجيل…';
+  btn.disabled = true;
+  var res = await sb.from('interests').insert({ email: email, competitors: comps });
+  btn.disabled = false;
+  if (res.error) {
+    msg.className = 'err';
+    msg.textContent = 'حصلت مشكلة في التسجيل، جرّب تاني أو ابعتلنا على qalebakgahez@gmail.com';
+  } else {
+    msg.className = 'ok';
+    msg.textContent = 'تم تسجيل اهتمامك بنجاح! هنرد عليك على إيميلك بخطوات الاشتراك أول ما يفتح.';
+    document.getElementById('interestForm').reset();
+  }
+});
+</script>
 </body>
 </html>
